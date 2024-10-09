@@ -106,7 +106,6 @@ func handlePostTransaction(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleGetTransaction(w http.ResponseWriter, r *http.Request) {
-	//He tocado algo que hace que la api de get no funcione bien
 	query := r.URL.Query()
 
 	id := query.Get("id")
@@ -116,9 +115,7 @@ func handleGetTransaction(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	mu.Lock()
 	data, exists := transactions[id]
-	mu.Lock()
 
 	if !exists {
 		err := errors.New("id not found")

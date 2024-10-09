@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"sync"
 	"time"
 )
 
@@ -54,13 +55,12 @@ func main() {
 	duration := time.Since(start)
 	fmt.Printf("Single POST duration: %s\n", duration)
 
-	//He tocado algo que hace que la api de get no funcione bien
 	start = time.Now()
 	callApiGet(data.ID)
 	duration = time.Since(start)
 	fmt.Printf("Single GET duration: %s\n", duration)
 
-	/* const numCalls = 10
+	const numCalls = 1000
 	const numGoroutines = 5
 	var wg sync.WaitGroup
 
@@ -105,7 +105,7 @@ func main() {
 
 	fmt.Printf("Total duration for concurrent calls: %s\n", duration)
 	fmt.Printf("Successful executions: %d\n", successCount)
-	fmt.Printf("Error executions: %d\n", errorCount) */
+	fmt.Printf("Error executions: %d\n", errorCount)
 }
 
 func getMockedData() (Data, bool) {
