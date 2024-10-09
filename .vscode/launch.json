@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "api",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/pkg/api/api.go",
+            "env": {},
+            "args": [],
+        },
+        {
+            "name": "script",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/pkg/script/script.go",
+            "env": {},
+            "args": [],
+        }
+    ]
+}
