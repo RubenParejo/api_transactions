@@ -115,7 +115,9 @@ func handleGetTransaction(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	mu.Lock()
 	data, exists := transactions[id]
+	mu.Unlock()
 
 	if !exists {
 		err := errors.New("id not found")
